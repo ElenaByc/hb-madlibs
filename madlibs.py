@@ -66,6 +66,11 @@ def show_madlib_form():
     # if play_game == 'no':
     #     return render_template('goodbye.html')
     
+
+
+# try to add methods
+# @app.route('/database', methods=['GET', 'POST'])
+
 @app.route('/madlib', methods=['post'])
 def show_madlib():
     #  get person, color, noun, and adjective 
