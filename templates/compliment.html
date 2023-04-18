@@ -1,17 +1,32 @@
 <!doctype html>
 <html>
+
 <head>
-  <title>A Compliment</title>
+    <title>A Compliment</title>
 </head>
+
 <body>
-    <p>Hi {{ person }}! I think you're {{ compliment }}!</p>
-    <form action="/game">
-        <p>Would you like to play a game?</p>
-        <input type="radio" id="yes" name="wants_to_play" value="yes">
+    <p>
+        <!-- Hi {{ person }}! I think you're {{ compliment }}! -->
+        Hi, {{ person }}! You're so 
+        {% for i in range(compliments|length) %}
+        {{ compliments[i]}}{% if i != compliments|length - 1 %},{% else %}!{% endif %}
+        {% endfor %}
+        <!-- <ul>
+            {% for compliment in compliments %}
+            <li>{{ compliment }}</li>
+            {% endfor %}
+        </ul> -->
+    </p>
+    <form action="/game" method="get">
+        <label for="game">Would you like to play a game?</label>
+        <input type="checkbox" name="wants_to_play" id="game"><br>
+        <!-- <input type="radio" id="yes" name="wants_to_play" value="yes">
         <label for="yes">YES</label><br>
         <input type="radio" id="no" name="wants_to_play" value="no">
-        <label for="no">NO</label><br>
+        <label for="no">NO</label><br> -->
         <input type="submit">
     </form>
 </body>
+
 </html>
